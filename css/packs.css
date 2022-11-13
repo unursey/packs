@@ -1,0 +1,62 @@
+.packs {
+  background-color: rgba(23, 24, 23, 0.7);
+  padding: 40px 0;
+}
+
+.packs__title {
+  color: rgb(201, 190, 169);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.packs__table {
+  border: none;
+}
+
+.packs__line {
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  border: none;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.packs__form-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.packs__time {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.packs__label {
+  width: 180px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.packs__input {
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  padding: 0 20px;
+}
+
+.packs__input:focus {
+  outline: 2px solid var(--brown, #764b07);
+  outline-offset: -2px;
+}

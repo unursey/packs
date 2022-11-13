@@ -1,0 +1,69 @@
+html {
+  box-sizing: border-box;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  color: var(--white-color, #FFFFFF);
+  background-image: url('/img/fon.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, p, figure, fieldset {
+  margin: 0;
+}
+
+.container {
+  max-width: 768px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 50px 0;
+}
+
+.hide {
+  display: none;
+}
+
+svg path {
+  fill:inherit;
+  stroke:inherit;
+  stroke-width:inherit;
+}

@@ -1,0 +1,21 @@
+.rules {
+    margin: 30px 0;
+    padding: 30px 40px;
+    background-color: rgba(23, 24, 23, 0.7);
+}
+
+.rules__title {
+    color: rgb(201, 190, 169);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.rules__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}

@@ -14,13 +14,23 @@ const database = firebase.database();
 
 let timer;
 
-$(".packs__input").each(function(i) {
+
+$(".packs__input").each(function() {
     $(this).on('change', function() {
         num = $(this).attr('id');
         firebase.database().ref('packscollection/' + num).set({
             num : $(this).val(),
             time: new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' }),
         });
+    });
+
+    $(this).on('input', function() {
+        console.log($(this).val())
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        } else {
+            this.value = this.value.substr(0, 3)
+        }
     });
 });
 

@@ -14,47 +14,54 @@ const database = firebase.database();
 
 let timer;
 
-
-$("#packsForm").on('change', function() {
-    console.log('#packsForm: ', packsForm);    
-    firebase.database().ref('packscollection/').set({
-            one: $(".packs__one").val(),
-            two: $(".packs__two").val(),
-            three: $(".packs__three").val(),
-            four: $(".packs__four").val(),
-            five: $(".packs__five").val(),
-            six: $(".packs__six").val(),
-            seven: $(".packs__seven").val(),
+$(".packs__input").each(function(i) {
+    $(this).on('change', function() {
+        num = $(this).attr('id');
+        firebase.database().ref('packscollection/' + num).set({
+            num : $(this).val(),
+            time: new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' }),
         });
+    });
 });
+
+// $("#packsForm").on('change', function() {
+//     firebase.database().ref('packscollection/').set({
+//             one: $(".packs__one").val(),
+//             two: $(".packs__two").val(),
+//             three: $(".packs__three").val(),
+//             four: $(".packs__four").val(),
+//             five: $(".packs__five").val(),
+//             six: $(".packs__six").val(),
+//             seven: $(".packs__seven").val(),
+//         });
+// });
 
 
 const getPacks = () => {
     firebase.database().ref('packscollection/').once("value").then((snapshot) => {
-        Object.keys(snapshot.val()).forEach(() => {
-            //console.log(`One: ${snapshot.val().one}`);
-            const newOne = snapshot.val().one;
-            $(".packs__one").val(newOne);
-            //console.log(`Two: ${snapshot.val().two}`);
-            const newTwo = snapshot.val().two;
-            $(".packs__two").val(newTwo);
-            //console.log(`Three: ${snapshot.val().three}`);
-            const newThree = snapshot.val().three;
-            $(".packs__three").val(newThree);
-            //console.log(`Four: ${snapshot.val().four}`);
-            const newFour = snapshot.val().four;
-            $(".packs__four").val(newFour);
-            //console.log(`Five: ${snapshot.val().five}`);
-            const newFive = snapshot.val().five;
-            $(".packs__five").val(newFive);
-            //console.log(`Six: ${snapshot.val().six}`);
-            const newSix = snapshot.val().six;
-            $(".packs__six").val(newSix);
-            //console.log(`Seven: ${snapshot.val().seven}`);
-            const newSeven = snapshot.val().seven;  
-            $(".packs__seven").val(newSeven);      
+        const obj = Object(snapshot.val());
+            
+            $(".packs__one").val(obj.one.num);
+            $(".packs__time-one").text(obj.one.time)
+
+            $(".packs__two").val(obj.two.num);
+            $(".packs__time-two").text(obj.two.time)
+
+            $(".packs__three").val(obj.three.num);
+            $(".packs__time-three").text(obj.three.time);
+
+            $(".packs__four").val(obj.four.num);
+            $(".packs__time-four").text(obj.four.time);
+   
+            $(".packs__five").val(obj.five.num);
+            $(".packs__time-five").text(obj.five.time);
+
+            $(".packs__six").val(obj.six.num);
+            $(".packs__time-six").text(obj.six.time);
+
+            $(".packs__seven").val(obj.seven.num);
+            $(".packs__time-seven").text(obj.seven.time);   
         });
-    });
 }
 
 const updatePacks = () => {
